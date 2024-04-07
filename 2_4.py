@@ -71,16 +71,13 @@ for i in range(8):
 
 if inversion_count % 2 != 0:
     print('unsolvable')
+else :
+    goal_state = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]   # 目标状态
 
-goal_state = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]   # 目标状态
-
-steps, path = solve_puzzle(start_state, goal_state)
-if steps is not None:
+    steps, path = solve_puzzle(start_state, goal_state)
+    if steps is not None:
     # print("Minimum steps to reach the goal state:", steps)
-    print(path)
-else:
-    print("No solution found.")
-
+        print(path)
 # end_time = time.perf_counter()
 # #print()
 # #print(saw)

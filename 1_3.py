@@ -13,7 +13,7 @@ def heap_delete(t):
         l = s*2
         r = s*2+1
         target = s
-        if (dist[q[l]] < q[s]):
+        if (dist[q[l]] < dist[q[s]]):
             target = l
         if (r <= t and dist[q[r]] < dist[q[target]]):
             target = r
@@ -34,6 +34,7 @@ def dijkstra():
     while (lenq >= 1):
         # 找到距起点最近的节点
         new_i = q[1]
+        # print(new_i, dist[new_i], "q:", q, dist[6], lenq)
         heap_delete(lenq)
         lenq = lenq - 1
         # 如果是目标节点就直接返回
@@ -45,6 +46,7 @@ def dijkstra():
         for k in range(1, lenq+1):
             if dist[q[k]] > dist[new_i] + mmap[new_i][q[k]] :
                 dist[q[k]] = dist[new_i] + mmap[new_i][q[k]]
+                # print("updat:-----------", q[k], dist[q[k]])
                 heap_init(k)
 
     return -1
